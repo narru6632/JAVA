@@ -39,7 +39,8 @@ public class E03CharBooleanType
 		// (char)(char + int => int) => char형으로 형변환된다.
 		char ch3 = (char)(ch2+num1); 
 		System.out.println("ch3(문자출력)=>"+ ch3); 
-		System.out.println("ch3(아스키코드출력)=>"+ (int)ch3); 
+
+
 		
 		//싱글쿼테이션으로 감쌌으므로 문자'1'(아스키코드:49)이 할당된다.
 		char ch4 = '1'; 
