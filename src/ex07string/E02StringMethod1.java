@@ -15,7 +15,7 @@ public class E02StringMethod1
 		System.out.println("str1의 길이 : "+str1.length());
 		System.out.println("str2의 길이 : "+str2.length());
 		
-//		2] charA(인덱스) 인덱스 번호의 문자 출력
+//		2] charAt(인덱스) 인덱스 번호의 문자 출력
 		
 		System.out.println("### 2 ###");
 		System.out.println("str의 두번째 문자 : "
