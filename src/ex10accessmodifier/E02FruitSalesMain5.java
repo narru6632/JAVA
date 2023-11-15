@@ -1,5 +1,4 @@
-package ex08class;
-
+package ex10accessmodifier;
 
 /*
 세번째 버전에서는 초기화 메서드를 생성자로 변경한다.
@@ -60,7 +59,7 @@ class FruitBuyer3{
 	}
 }
 
-public class E06FruitSalesMain3 {
+public class E02FruitSalesMain5 {
 
 	public static void main(String[] args) {
 		
@@ -98,4 +97,3 @@ public class E06FruitSalesMain3 {
 		buyer.showBuyResult();	// 사관15개, 금액 0원
 	}
 }
-
