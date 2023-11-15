@@ -2,8 +2,11 @@ package ex10accessmodifier;
 
 /*
 캡슐화(encapsulation)
-여러가지 업무로직을 하나로 묶는다 / 업무의 순서를 고려한 로직을 구성
+여러가지 업무로직을 관련있는걸 모아 하나로 묶는다 / 업무의 순서를 고려한 로직을 구성
 */
+
+
+//업무가 번호순대로 시행되어야 한다고 가정
 class MemberRegist{
 	void doMemberRegist(){
 		System.out.println("1.회원가입을 진행합니다.");
@@ -28,6 +31,12 @@ class FirstLoginEvent{
 	}
 }
 
+
+/*
+업무의 순서를 고려하여 관련된 메서드롤 하나의 클래스로 정의한다.
+차후에는 별도의 분석없이 해당 클래스의 메서드만 호출하면 업무는
+차질없이 진행될것이다.
+*/
 class EncapsulLogic{ // 캡슐화 로직
 	
 	MemberRegist memberRegist = new MemberRegist();

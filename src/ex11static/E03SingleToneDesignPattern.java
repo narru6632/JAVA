@@ -23,14 +23,27 @@ class NoSingleTone{
 
 class SingleTone{
 	int shareVar;
+	
+	//프로그램이 시작될때 static변수는 미리 메서드영역에 로딩되어 
+	//사용할 준비를 마치게된다.
 	private static SingleTone single = new SingleTone();
 	
-	private SingleTone() {
-		
+	/*
+	 생성자를 private으로 선언하면 클래스 외부에서는 호출할 수 없으므로
+	 new를 통해 객체를 생성할 수 없게 된다.
+	 */
+	private SingleTone() { // default 생성자의 private화	
 	}
+	
+	/*
+	 정적메서드로 선언된 getInstance()를 통해 해당 객체(참조값)를 외부로
+	 반환한다. 이런 함수를 "유틸리티 메서드"라고 한다,
+	 */
 	public static SingleTone getInstance() {
 		return single;
 	}
+	
+	//멤버변수 출력용 멤버메서드
 	void print() {
 		System.out.println(String.format("shareVar=%d", shareVar));
 	}
@@ -42,17 +55,17 @@ public class E03SingleToneDesignPattern
 	{
 		NoSingleTone nst1 = new NoSingleTone();
 		nst1.instVar = 100;
-		System.out.println("nst1="+nst1);
-		
-		NoSingleTone nst2 = new NoSingleTone();
+		System.out.println("nst1="+nst1); // 일반적방식의 객체 생성이라
+												
+		NoSingleTone nst2 = new NoSingleTone();//객체 생성시 마다 새로운 참조값(주소)를
 		nst1.instVar = 200;
-		System.out.println("nst2="+nst2);
+		System.out.println("nst2="+nst2);//할당받는 인스턴스가 된다
 		
 		
 		
 		
 //		SingleTone st1 = new SingleTone(); private이므로 객체생성 불가
-		
+		//static 메서드 이므로 클래스 명으로 직접 호출하자
 		SingleTone st2 = SingleTone.getInstance();
 		st2.shareVar = 100;
 		st2.print();
@@ -60,6 +73,7 @@ public class E03SingleToneDesignPattern
 		SingleTone st3 = SingleTone.getInstance();
 		st3.shareVar = 200;
 		st3.print();
+		//
 		
 		System.out.println(String.format("st2의주소:%s",st2));
 		System.out.println(String.format("st3의주소:%s",st3));

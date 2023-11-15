@@ -40,7 +40,7 @@ class Account{
 	}//직접 생성자를 정의했기때문에 디폴트 생성자가 추가되지않음
 	
 	
-	//입금처리 - protected롤 선언되었으므로 상속관계에서 접근 가능함
+	//입금처리 - protected로 선언되었으므로 상속관계에서 접근 가능함
 	protected void depositMoney(int _money) {
 		if(_money<0) {
 			System.out.println("마이너스 금액은 입금처리 불가합니다");
@@ -59,16 +59,19 @@ class SavingAccount extends Account{
 	/*
 	인자생성자에서 부모의 생성자를 호출하기 위한 super(xxx)를 사용
 	이때 매개변수가 하나의 부모클래스의 생성자가 호출된다.
-	현재 
+	현재 부모클래스에서 인자가 하나인 생성자가 유일하므로 
+	 만약 아래와 같이 호출하지 않으면 에러가 발생한다. ㄱ 
 	*/
-	public SavingAccount(int initVal) {
-		super(initVal);
+	public SavingAccount(int initVal) {//하위클래스 생성자에서 필요한 매개변수를 받아
+		super(initVal);// super로 상위클래스 초기화를 시켜버린다
 	}
 	public void saveMoney(int money) {
-		depositMoney(money);
+		//super.money += money; << 부모쪽 private 접근불가 에러발생
+		depositMoney(money); // protected로 선언된 멤버메서드를 이용해 간접 출력해야한다
 	}
 	public void showAccountMoney() {
-		System.out.println("지금까지의 누적금액:"+getAccMoney());
+//		System.out.println("지금까지의 누적금액:"+ money);
+		System.out.println("지금까지의 누적금액:"+getAccMoney()); //위와동일
 	}
 }
 
@@ -76,9 +79,16 @@ public class E02PrivateInheritanceMain
 {
 	public static void main(String[] args)
 	{
+		// 자식클래스를 통해 객체를 생성한다.
 		SavingAccount sa = new SavingAccount(10000);
 		
-//		sa.money = 100000; private라 직접 접근불가능 에러
+		
+		/*
+		private 멤버이므로 상속받은 하위클래스의 참조변수를 통해서는
+		접근할 수 없다. 은닉된 정보이므로 "not visible"이라는 에러
+		메세지를 볼수있다.
+		 */
+//		sa.money = 100000; 
 		sa.saveMoney(5000);
 		sa.showAccountMoney();
 		sa.saveMoney(-1000);
@@ -86,6 +96,16 @@ public class E02PrivateInheritanceMain
 		
 		Account account = new Account(1000);
 //		account.money=1000; private라 직접 접근불가능 에러 
+		
+		
+		
+		/*
+		Account클래스는 개발자가 매개변수를 하나 가진 생성자를 호출
+		했으므로 아래와 같이 객체를 생성할 수 없다. 해당 문장은 매개
+		변수가 없는 디폴트생성자를 호출하기 때문이다. 
+		디폴트 생성자를 호출하면 에러가 없어집니다. << 이게 무슨말?
+		 */
+//		Account account2 = new Account();
 	}
 	
 }
