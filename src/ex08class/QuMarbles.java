@@ -2,7 +2,7 @@ package ex08class;
 
 class ChildProperty {
 	int marble;
-	static int lose = 0;
+	static int lost = 0;
 
 	public ChildProperty(int marble) {
 		this.marble = marble;
@@ -13,8 +13,8 @@ class ChildProperty {
 	}
 	void obtainBead(ChildProperty child,int bead) {
 		marble += bead;
-		marble -= lose;
-		lose += bead;
+		marble -= lost;
+		lost += bead;
 	}
 }
 
