@@ -30,14 +30,12 @@ public class QuRockPaperScissors {
 				System.out.println("~~게임진행~~");
 				switch(com){
 				case 1:
-					System.out.println("상대는 가위를 냈습니다");
-					break;
+					System.out.println("상대는 가위를 냈습니다"); break;
 				case 2:
-					System.out.println("상대는 바위를 냈습니다");
-					break;
+					System.out.println("상대는 바위를 냈습니다"); break;
 				default:
 					System.out.println("상대는 보를 냈습니다");
-				}
+					}
 				switch (player - com) {
 				case 1:
 				case -2:
