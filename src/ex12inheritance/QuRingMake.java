@@ -49,8 +49,8 @@ class Circle
 
 	public void ShowCircleInfo()
 	{
-		center.showPointInfo();
 		System.out.println("반지름:" + this.radian);
+		center.showPointInfo();
 	}
 }
 

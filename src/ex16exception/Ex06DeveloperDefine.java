@@ -4,13 +4,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-class AgeErrorException2 extends Exception {
-	public AgeErrorException2() {
+class AgeErrorException extends Exception {
+	public AgeErrorException() {
 		super("나이 입력이 잘못 되었어요");
 	}
 }
 
-public class Ex06DeveloperDefine2 {
+public class Ex06DeveloperDefine {
 
 	public static void main(String[] args) {
 
@@ -42,16 +42,17 @@ public class Ex06DeveloperDefine2 {
 				예외객체가 개발자에 의해 던져지면 해당 위치에서
 				즉시 예외처리 한다. 
 				 */
-				AgeErrorException2 ex = new AgeErrorException2();
+				AgeErrorException ex = new AgeErrorException();
 				throw ex;			
 			}			
-		} catch (AgeErrorException2 e)
+		} catch (AgeErrorException e)
 		{
 			System.out.println(e.getMessage());
 		}
 		return inputAge;
 	}
 }
+
 
 
 
