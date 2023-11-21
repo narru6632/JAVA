@@ -87,7 +87,7 @@ public class QuBubbleSort
 	public static void showArray(int[] arr, String message) {//결과보여주기
 		System.out.println(message);
 		for(int i = 0; i<arr.length; i++) {
-			System.out.printf("%d",arr[i]);
+			System.out.printf("%d ",arr[i]);
 	}
 		System.out.println();
 	}
